@@ -1,14 +1,16 @@
 package ru.semenovmy.learning.fouractivities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import org.apache.commons.lang3.RandomStringUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +19,9 @@ public class Catalog extends AppCompatActivity {
     private static final String SAVED_STRING_ONE = "STRING_ONE";
     private static final String SAVED_STRING_TWO = "STRING_TWO";
     private static final String SAVED_PARCEL = "PARCEL";
+
     public final String TAG = this.getClass().getName();
+
     private TestModel mTestModel;
     private String mButtonText;
     private Button mButton;
@@ -31,6 +35,8 @@ public class Catalog extends AppCompatActivity {
 
         mTextView = findViewById(R.id.text_view);
         mButton = findViewById(R.id.button);
+
+        mButton.setOnClickListener(this::onClick);
 
         mTextViewText = RandomStringUtils.randomAlphabetic(8);
         mButtonText = RandomStringUtils.randomNumeric(7);
@@ -60,7 +66,7 @@ public class Catalog extends AppCompatActivity {
     }
 
     private void onClick(View view) {
-        Intent intent = new Intent(this, Catalog.class);
+        Intent intent = new Intent(this, MarketMap.class);
         startActivity(intent);
     }
 
