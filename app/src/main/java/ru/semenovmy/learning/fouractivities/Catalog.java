@@ -2,6 +2,8 @@ package ru.semenovmy.learning.fouractivities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -26,6 +28,7 @@ public class Catalog extends AppCompatActivity {
     private String mButtonText;
     private Button mButton;
     private TextView mTextView;
+    private TextView mTextNavigation;
     private String mTextViewText;
 
     @Override
@@ -35,6 +38,7 @@ public class Catalog extends AppCompatActivity {
 
         mTextView = findViewById(R.id.text_view);
         mButton = findViewById(R.id.button);
+        mTextNavigation = findViewById(R.id.text_view_navigation);
 
         mButton.setOnClickListener(this::onClick);
 
@@ -46,27 +50,28 @@ public class Catalog extends AppCompatActivity {
 
         List<String> firstList = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
-            firstList.add(RandomStringUtils.randomNumeric(2));
-            firstList.add(RandomStringUtils.randomNumeric(3));
-            firstList.add(RandomStringUtils.randomNumeric(4));
             firstList.add(RandomStringUtils.randomNumeric(5));
-            firstList.add(RandomStringUtils.randomNumeric(6));
         }
 
         List<String> secondList = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
-            secondList.add(RandomStringUtils.randomNumeric(2));
-            secondList.add(RandomStringUtils.randomNumeric(3));
-            secondList.add(RandomStringUtils.randomNumeric(4));
             secondList.add(RandomStringUtils.randomNumeric(5));
-            secondList.add(RandomStringUtils.randomNumeric(6));
         }
 
         mTestModel = new TestModel(mTextViewText, mButtonText, firstList, secondList);
+
+        mTextNavigation.setText(Html.fromHtml(
+                "<a href='market://account'>Account</a>\n" +
+                        "<a href='http://my.market.com/map'>Map</a>\n" +
+                        "<a href='http://my.market.com/search'>Search</a>\n" +
+                        "<a href='http://my.market.com/catalog'>Catalog</a>"));
+        mTextNavigation.setMovementMethod(LinkMovementMethod.getInstance());
+        mTextNavigation.setLinksClickable(true);
     }
 
     private void onClick(View view) {
         Intent intent = new Intent(this, MarketMap.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
 

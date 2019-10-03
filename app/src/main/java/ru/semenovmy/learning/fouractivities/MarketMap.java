@@ -46,20 +46,12 @@ public class MarketMap extends AppCompatActivity {
 
         List<String> firstList = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
-            firstList.add(RandomStringUtils.randomNumeric(2));
-            firstList.add(RandomStringUtils.randomNumeric(3));
-            firstList.add(RandomStringUtils.randomNumeric(4));
             firstList.add(RandomStringUtils.randomNumeric(5));
-            firstList.add(RandomStringUtils.randomNumeric(6));
         }
 
         List<String> secondList = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
-            secondList.add(RandomStringUtils.randomNumeric(2));
-            secondList.add(RandomStringUtils.randomNumeric(3));
-            secondList.add(RandomStringUtils.randomNumeric(4));
             secondList.add(RandomStringUtils.randomNumeric(5));
-            secondList.add(RandomStringUtils.randomNumeric(6));
         }
 
         mTestModel = new TestModel(mTextViewText, mButtonText, firstList, secondList);
