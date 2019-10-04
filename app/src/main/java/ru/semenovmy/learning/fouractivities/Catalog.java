@@ -71,7 +71,6 @@ public class Catalog extends AppCompatActivity {
 
     private void onClick(View view) {
         Intent intent = new Intent(this, MarketMap.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
 

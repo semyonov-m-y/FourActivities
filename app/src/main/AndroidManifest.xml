@@ -16,13 +16,12 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data
-                    android:host="market:/"
-                    android:pathPrefix="/account"
-                    android:scheme="http"/>
+                    android:host="account"
+                    android:scheme="market"/>
             </intent-filter>
         </activity>
         <activity android:name=".Search">
-            <intent-filter>
+            <intent-filter android:autoVerify="true">
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
@@ -32,8 +31,7 @@
                     android:scheme="http"/>
             </intent-filter>
         </activity>
-        <activity android:name=".MarketMap"
-            android:launchMode="singleTask">
+        <activity android:name=".MarketMap">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -47,6 +45,11 @@
         <activity android:name=".Catalog"
             android:launchMode="singleTop">
             <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
 
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -54,6 +57,15 @@
                 <data
                     android:host="my.market.com"
                     android:pathPrefix="/catalog"
+                    android:scheme="http"/>
+            </intent-filter>
+            <intent-filter>
+
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:host="my.market.com"
                     android:scheme="http"/>
             </intent-filter>
         </activity>
