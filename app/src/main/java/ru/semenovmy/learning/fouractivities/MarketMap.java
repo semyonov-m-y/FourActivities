@@ -22,9 +22,9 @@ public class MarketMap extends AppCompatActivity {
 
     public final String TAG = this.getClass().getName();
 
-    private TestModel mTestModel;
-    private String mButtonText;
     private Button mButton;
+    private String mButtonText;
+    private TestModel mTestModel;
     private TextView mTextView;
     private String mTextViewText;
 
@@ -73,12 +73,12 @@ public class MarketMap extends AppCompatActivity {
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
         mTextViewText = savedInstanceState.getString(SAVED_STRING_ONE);
         mButtonText = savedInstanceState.getString(SAVED_STRING_TWO);
         mTestModel = savedInstanceState.getParcelable(SAVED_PARCEL);
         mButton.setText(mButtonText);
         mTextView.setText(mTextViewText);
-        super.onRestoreInstanceState(savedInstanceState);
         Log.d(TAG, new StringBuilder(TAG).append("onRestoreInstanceState").toString());
     }
 
